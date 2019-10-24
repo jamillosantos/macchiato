@@ -26,6 +26,10 @@ func NewStenographer(nc bool) *Stenographer {
 // AnnounceSuite print the suite's description
 func (s *Stenographer) AnnounceSuite(description string, randomSeed int64, randomizingAll bool, quiet bool) {
 	renderTextWithoutSpace(buf(description))
+
+	if randomizingAll {
+		renderTextWithoutSpace(sbf("Random Seed: %d", randomSeed))
+	}
 }
 
 // AnnounceAggregatedParallelRun will do nothing.
